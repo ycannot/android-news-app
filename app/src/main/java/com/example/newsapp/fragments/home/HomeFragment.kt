@@ -5,8 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import com.example.newsapp.R
 import com.example.newsapp.activities.main.MainActivity
 import com.example.newsapp.databinding.FragmentHomeBinding
 import com.example.newsapp.fragments.base.BaseFragment
@@ -17,7 +20,7 @@ class HomeFragment : BaseFragment() {
     lateinit var viewModel: HomeViewModel
     lateinit var appbarHelper: AppbarHelper
     lateinit var startDateString: String
-    private val newsListAdapter = NewsListAdapter()
+    private lateinit var newsListAdapter:NewsListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,9 +32,17 @@ class HomeFragment : BaseFragment() {
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         appbarHelper = (requireActivity() as MainActivity).appbarHelper
         appbarHelper.setTitle("Latest News")
-        binding.rvNews.adapter = newsListAdapter
+        initNewsAdapter()
         initObservers()
         return binding.root
+    }
+
+    private fun initNewsAdapter() {
+        newsListAdapter = NewsListAdapter(listener = { url ->
+            val navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
+            navController.navigate(R.id.action_nav_home_to_nav_webView, bundleOf("url" to url))
+        })
+        binding.rvNews.adapter = newsListAdapter
     }
 
     private fun initObservers() {
