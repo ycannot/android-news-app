@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.newsapp.MainActivity
+import com.example.newsapp.activities.main.MainActivity
 import com.example.newsapp.databinding.FragmentHomeBinding
 import com.example.newsapp.fragments.base.BaseFragment
 import com.example.newsapp.helpers.AppbarHelper
