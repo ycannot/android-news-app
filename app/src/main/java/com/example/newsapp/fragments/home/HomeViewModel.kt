@@ -1,9 +1,6 @@
 package com.example.newsapp.fragments.home
 
-import android.telecom.Call
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.example.newsapp.fragments.base.BaseViewModel
 import com.example.newsapp.interfaces.NewsApiInterface
 import com.example.newsapp.models.ApiFailModel
@@ -13,10 +10,9 @@ import retrofit2.Response
 
 class HomeViewModel : BaseViewModel() {
     val newsLiveData:MutableLiveData<NewsResponse> = MutableLiveData()
+    private val newsApi: NewsApiInterface = buildRetrofit().create(NewsApiInterface::class.java)
     fun getFootballNews(startDateString: String){
-        val apiService = buildRetrofit().create(NewsApiInterface::class.java)
-        val call = apiService.getNews("ae68088e70d04639b4950bdc9d546924", "football", "publishedAt", startDateString)
-        call.request()
+        val call = newsApi.getNews("ae68088e70d04639b4950bdc9d546924", "football", "publishedAt", startDateString)
         println(call.request())
         call.enqueue(object: Callback<NewsResponse> {
             override fun onResponse(
@@ -36,5 +32,4 @@ class HomeViewModel : BaseViewModel() {
             }
         })
     }
-
 }
