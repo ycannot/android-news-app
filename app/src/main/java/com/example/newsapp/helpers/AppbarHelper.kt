@@ -25,10 +25,12 @@ class AppbarHelper(appBarBinding: CustomAppBarBinding) {
     fun showBackButton(){
         binding.btnMenu.visibility = View.GONE
         binding.btnBack.visibility = View.VISIBLE
+        binding.btnFilter.visibility = View.GONE
     }
     fun showMenuButton(){
         binding.btnMenu.visibility = View.VISIBLE
         binding.btnBack.visibility = View.GONE
+        binding.btnFilter.visibility = View.VISIBLE
     }
     fun setTitle(title:String){
         binding.tvToolbarTitle.text = title

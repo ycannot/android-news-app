@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.newsapp.R
+import com.example.newsapp.activities.main.MainActivity
 import com.example.newsapp.databinding.WebViewFragmentBinding
 import com.example.newsapp.fragments.base.BaseFragment
 
@@ -25,6 +26,9 @@ class WebViewFragment : BaseFragment() {
                 url = args.getString("url")
             }
         }
+        val appbarHelper = (requireActivity() as MainActivity).appbarHelper
+        appbarHelper.setTitle("Wear Mask")
+        appbarHelper.showBackButton()
         return binding.root
     }
 

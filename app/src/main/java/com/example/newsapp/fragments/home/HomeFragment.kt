@@ -18,7 +18,6 @@ import com.example.newsapp.helpers.AppbarHelper
 class HomeFragment : BaseFragment() {
     lateinit var binding: FragmentHomeBinding
     lateinit var viewModel: HomeViewModel
-    lateinit var appbarHelper: AppbarHelper
     lateinit var startDateString: String
     private lateinit var newsListAdapter:NewsListAdapter
 
@@ -30,8 +29,9 @@ class HomeFragment : BaseFragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-        appbarHelper = (requireActivity() as MainActivity).appbarHelper
+        val appbarHelper = (requireActivity() as MainActivity).appbarHelper
         appbarHelper.setTitle("Latest News")
+        appbarHelper.showMenuButton()
         initNewsAdapter()
         initObservers()
         return binding.root
