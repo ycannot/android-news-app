@@ -33,8 +33,7 @@ class NewsListAdapter(
         fun bind(article: Article) {
             try {
                 Picasso.get().load(article.urlToImage).into(itemBinding.ivNew)
-            } catch (ignored: Exception) {
-            }
+            } catch (ignored: Exception) {}
             itemBinding.tvTitle.text = article.title
             itemBinding.tvDescription.text = article.description
             itemBinding.tvSource.text = article.source?.name
