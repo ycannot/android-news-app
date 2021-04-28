@@ -9,17 +9,15 @@
         android:id="@+id/nav_home"
         android:name="com.example.newsapp.fragments.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_webView"
+            app:destination="@id/nav_webView" />
+    </fragment>
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.newsapp.fragments.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.newsapp.fragments.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_webView"
+        android:name="com.example.newsapp.fragments.webView.WebViewFragment"
+        android:label="web_view_fragment"
+        tools:layout="@layout/web_view_fragment" />
 </navigation>
