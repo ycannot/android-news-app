@@ -4,6 +4,7 @@ import android.app.DatePickerDialog
 import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
+import com.example.newsapp.R
 import java.util.*
 
 class DatePickerFragment(
@@ -25,6 +26,7 @@ class DatePickerFragment(
         // Create a new instance of DatePickerDialog
         val dialog = DatePickerDialog(requireActivity(), listener, year, month, day)
         dialog.datePicker.maxDate = maxDate
+        dialog.setMessage(getString(R.string.date_picker_title))
         // return it
         return dialog
     }
