@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
             menuAction = {drawerLayout.openDrawer(GravityCompat.START)}
             filterAction = {
                 val listener = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
-                    setSelectedYear(year, month, dayOfMonth)
+                    setSelectedYear(year, month+1, dayOfMonth)
                 }
                 val newFragment = DatePickerFragment(listener, selectedDate)
                 newFragment.show(supportFragmentManager, "datePicker")

@@ -12,7 +12,7 @@ class HomeViewModel : BaseViewModel() {
     val newsLiveData:MutableLiveData<NewsResponse> = MutableLiveData()
     private val newsApi: NewsApiInterface = buildRetrofit().create(NewsApiInterface::class.java)
     fun getFootballNews(startDateString: String){
-        val call = newsApi.getNews("ae68088e70d04639b4950bdc9d546924", "football", "publishedAt", startDateString)
+        val call = newsApi.getNews("ae68088e70d04639b4950bdc9d546924", "football", "popularity", startDateString, 50)
         println(call.request())
         call.enqueue(object: Callback<NewsResponse> {
             override fun onResponse(
