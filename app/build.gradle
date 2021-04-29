@@ -3,10 +3,20 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'org.sonarqube' version "2.7"
-    id "jacoco"
+    id 'jacoco'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.appdistribution'
 }
 apply from:"$rootDir/utils.gradle"
 android {
+    signingConfigs {
+        releaseConfig {
+            storePassword 'roofstacks'
+            keyAlias 'key0'
+            keyPassword 'roofstacks'
+            storeFile file("$rootDir/keystore.jks")
+        }
+    }
     compileSdkVersion 29
     buildToolsVersion "30.0.3"
 
@@ -16,14 +26,20 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        firebaseAppDistribution {
+            appId="1:810885074999:android:3cbcd55049abe0192fafb2"
+            serviceCredentialsFile="$rootDir\\firebase-app-distribution-key.json"
+            releaseNotesFile="$rootDir\\release_notes.txt"
+            groupsFile="$rootDir\\distribution_test_groups.txt"
+        }
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.releaseConfig
         }
     }
     compileOptions {
@@ -61,4 +77,6 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation platform('com.google.firebase:firebase-bom:27.1.0')
+    implementation 'com.google.firebase:firebase-analytics'
 }
