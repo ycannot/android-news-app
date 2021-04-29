@@ -29,9 +29,9 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         firebaseAppDistribution {
             appId="1:810885074999:android:3cbcd55049abe0192fafb2"
-            serviceCredentialsFile="$rootDir\\firebase-app-distribution-key.json"
-            releaseNotesFile="$rootDir\\release_notes.txt"
-            groupsFile="$rootDir\\distribution_test_groups.txt"
+            serviceCredentialsFile="$rootDir/firebase-app-distribution-key.json"
+            releaseNotesFile="$rootDir/release_notes.txt"
+            groupsFile="$rootDir/distribution_test_groups.txt"
         }
     }
 
