@@ -30,4 +30,6 @@ jobs:
         with:
           java-version: 1.8
       - name: build assembleRelease appDistributionUploadRelease
-        run: ./gradlew clean assembleRelease appDistributionUploadRelease
+        run: |
+          chmod +x gradlew
+          ./gradlew clean assembleRelease appDistributionUploadRelease
