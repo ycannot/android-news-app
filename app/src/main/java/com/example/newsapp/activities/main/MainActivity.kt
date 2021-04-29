@@ -10,7 +10,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import com.example.newsapp.R
 import com.example.newsapp.databinding.ActivityMainBinding
-import com.example.newsapp.fragments.home.HomeViewModel
 import com.example.newsapp.helpers.AppbarHelper
 import com.example.newsapp.helpers.DatePickerFragment
 import java.util.*

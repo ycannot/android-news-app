@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "810885074999",
+    "project_id": "newsapp-deb4a",
+    "storage_bucket": "newsapp-deb4a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:810885074999:android:3cbcd55049abe0192fafb2",
+        "android_client_info": {
+          "package_name": "com.example.newsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "810885074999-h3ineo3pm0hohq3vd5ugo1v4cpmr8dli.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2YijVlLfZ_vRhSmf5zkguMLcE71gaIuQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "810885074999-h3ineo3pm0hohq3vd5ugo1v4cpmr8dli.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
