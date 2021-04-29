@@ -2,8 +2,10 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'org.sonarqube' version "2.7"
+    id "jacoco"
 }
-
+apply from:"$rootDir/utils.gradle"
 android {
     compileSdkVersion 29
     buildToolsVersion "30.0.3"
